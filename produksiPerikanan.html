@@ -43,7 +43,7 @@
                             <li><a class="dropdown-item" href="produksiPerikanan.html">Jumlah Produksi Perikanan per ton tahun 2013</a></li>
                             <li>
                             <li><a class="dropdown-item" href="inflasi.html">Inflasi Kota Ternate Tahun 2017</a></li>
-                            <li>        
+                            <li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -58,7 +58,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2>Panjang Jalan menurut jenis permukaan jalan (Km) 2015
+                <h2>Jumlah Produksi Perikanan per ton tahun 2013
                 </h2>
             </div>
             <div class="card-body">
@@ -98,23 +98,76 @@
 
     <script>
         var options = {
-          series: [117.46, 125.66, 59.36],
+          series: [{
+          data: [5953.00, 1248.00, 0.00, 2389.00, 60.00, 867.00, 416.00, 777.00, 173.00, 1914.00]
+        }],
           chart: {
-          type: 'donut',
-          width: 500
+          type: 'bar',
+          height: 380
         },
-        labels: ['aspal', 'kerikil', 'tanah'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 400
-            },
-            legend: {
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
               position: 'bottom'
+            },
+          }
+        },
+        colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4', '#90ee7e',
+          '#f48024', '#69d2e7'
+        ],
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#fff']
+          },
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: true
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories: ['Tuna', 'Cakalang', 'Pisang-Pisang', 'Tongkol', 'Tembang', 'Kakap/Kerapu', 'Julung', 'Kembung',
+            'Cumi-cumi', 'Lain-lain', 
+          ],
+        },
+        yaxis: {
+          labels: {
+            show: false
+          }
+        },
+        title: {
+            text: 'Produksi Perikanan',
+            align: 'center',
+            floating: true
+        },
+        subtitle: {
+            text: 'Per ton tahun 2013',
+            align: 'center',
+        },
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
+          },
+          y: {
+            title: {
+              formatter: function () {
+                return ''
+              }
             }
           }
-        }]
+        }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);

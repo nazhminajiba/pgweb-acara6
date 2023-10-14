@@ -43,7 +43,7 @@
                             <li><a class="dropdown-item" href="produksiPerikanan.html">Jumlah Produksi Perikanan per ton tahun 2013</a></li>
                             <li>
                             <li><a class="dropdown-item" href="inflasi.html">Inflasi Kota Ternate Tahun 2017</a></li>
-                            <li>        
+                            <li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -58,7 +58,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2>Panjang Jalan menurut jenis permukaan jalan (Km) 2015
+                <h2>Inflasi Ternate Tahun 2017
                 </h2>
             </div>
             <div class="card-body">
@@ -98,23 +98,36 @@
 
     <script>
         var options = {
-          series: [117.46, 125.66, 59.36],
+          series: [{
+            name: "Inflasi",
+            data: [0.63, 0.03, -0.31, 0.36, 0.20, 1.55, 0.80, -1.51, -0.51, 0.52, -1.06, 0]
+        }],
           chart: {
-          type: 'donut',
-          width: 500
-        },
-        labels: ['aspal', 'kerikil', 'tanah'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 400
-            },
-            legend: {
-              position: 'bottom'
-            }
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
           }
-        }]
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Inflasi',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
+        }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
